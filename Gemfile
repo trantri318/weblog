@@ -43,7 +43,7 @@ group :development do
 end
 
 gem 'rails_12factor', group: :production
-
+  
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
