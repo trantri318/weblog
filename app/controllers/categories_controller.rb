@@ -9,12 +9,13 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new category_params
+
     if @category.save
-    flash[:success] = "Register success"
-    redirect_to categories_path
+      flash[:success] = "Register success"
+      redirect_to categories_path
     else
-    flash[:success] = "Register failed"
-    render :new
+      flash[:success] = "Register failed"
+      render :new
     end
   end
 

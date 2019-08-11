@@ -9,12 +9,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new post_params
+
     if @post.save
-    flash[:success] = "Register success"
-    redirect_to posts_path
+      flash[:success] = "Register success"
+      redirect_to posts_path
     else
-    flash[:success] = "Register failed"
-    render :new
+      flash[:success] = "Register failed"
+      render :new
     end
   end
 
