@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'users/sign_in' => 'sessions#new'
   get 'users/sign_up' => 'users#new'
+  post 'users/sign_in' => 'sessions#create'
   resources :users
   resources :posts
   resources :categories
