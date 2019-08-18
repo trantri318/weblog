@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
   def new
+    if session[:user_id]
+      flash[:warning] = 'Ban khong co quyen truy cap vao trang nay'
+      redirect_to root_path
+    end
   end
 
   def create

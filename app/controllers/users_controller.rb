@@ -2,8 +2,12 @@ class UsersController < ApplicationController
   def index
     @users = User.all
   end
-  
+
   def new
+    if session[:user_id]
+      flash[:warning] = 'Ban khong co quyen truy cap vao trang nay'
+      redirect_to root_path
+    end
     @user = User.new
   end
 
