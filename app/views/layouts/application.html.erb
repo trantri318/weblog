@@ -32,6 +32,10 @@
             <li class="nav-item">
               <a class="nav-link" href="<%= users_sign_up_path %>">Sign Up</a>
             </li>
+            <% else %>
+           <li class="nav-item">
+             <a class="nav-link" data-method="delete" href="<%= log_out_path %>">Log Out</a>
+           </li>
           <% end %>
         </ul>
         </div>
