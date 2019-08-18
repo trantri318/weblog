@@ -35,10 +35,17 @@
         </div>
       </nav>
   <body>
-
-
     <div class="container">
-    <%= yield %>
+      <%#= flash_message %>
+      <% if flash[:success] %>
+        <div class="alert alert-success" role="alert">
+          <%= flash[:success] %>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% end %>
+      <%= yield %>
     </div>
   </body>
 </html>
