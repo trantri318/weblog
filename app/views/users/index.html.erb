@@ -4,17 +4,24 @@
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
       <th scope="col">Created at</th>
     </tr>
   </thead>
+
   <tbody>
     <% @users.each do |user| %>
       <tr>
         <th scope="row"></th>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
+        <td><%= user.phone_number %></td>
         <td><%= user.created_at %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to 'Register', users_sign_up_path %>

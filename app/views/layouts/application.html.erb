@@ -25,19 +25,47 @@
           <li class="nav-item">
             <a class="nav-link" href="<%= categories_path %>">Categories</a>
           </li>
+          <% if session[:user_id].nil? %>
           <li class="nav-item">
             <a class="nav-link" href="<%= users_sign_in_path %>">Sign In</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= users_sign_up_path %>">Sign Up</a>
           </li>
+          <% else %>
+          <li class="nav-item">
+            <a class="nav-link" data-method="delete"  href="<%= log_out_path %>">Log Out</a>
+          </li>
+          <% end %>
         </ul>
         </div>
       </nav>
   <body>
-
-
     <div class="container">
+      <% if flash[:success] %>
+     <div class="alert alert-success" role="alert">
+       <%= flash[:success] %>
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <% end %>
+     <% if flash[:warning] %>
+     <div class="alert alert-warning" role="alert">
+       <%= flash[:warning] %>
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <% end %>
+     <% if flash[:danger] %>
+     <div class="alert alert-danger" role="alert">
+       <%= flash[:danger] %>
+       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <% end %>
     <%= yield %>
     </div>
   </body>
