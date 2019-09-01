@@ -30,7 +30,7 @@ class UsersController < ApplicationController
       flash[:success] = "Update success"
       redirect_to users_path
     else
-      flash[:success] = "Update failed"
+      flash[:danger] = "Update failed"
     end
   end
 
@@ -41,9 +41,10 @@ class UsersController < ApplicationController
       flash[:success] = "Register success"
       redirect_to users_path
     else
-      flash[:error] = "Register failed"
+      flash[:danger] = "Register failed"
       render :new
     end
+
   end
 
   private
@@ -52,6 +53,6 @@ class UsersController < ApplicationController
    end
 
   def user_params
-    params.require(:user).permit :name, :email, :phone_number, :password, :password_confirmation
+    params.require(:user).permit :name, :email, :phone_number, :password, :password_confirmation, {avatars: []}
   end
 end
